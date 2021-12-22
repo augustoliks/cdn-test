@@ -12,7 +12,7 @@ How to Install
 The ``cdn-test`` package is hosted in Python Package Index (PyPI). To
 install ``cnd-test``, it's recommend create a ``virtualenv`` and install the package using ``pip``. Example:
 
-.. code-block::
+.. code-block:: bash
 
     $ virtualenv --python=$(which python3) venv
     $ source venv/bin/activate
@@ -21,7 +21,7 @@ install ``cnd-test``, it's recommend create a ``virtualenv`` and install the pac
 Manual
 ------
 
-.. code-block::
+.. code-block:: bash
 
     $ cdn-test -h
 
@@ -45,14 +45,14 @@ Examples
 
 Each 10 seconds, it will be made a request with ``GET`` HTTP verb to web-site hosted by cloudformation with follow URL ``https://aws.amazon.com/pt/cloudfront/``. The request history will be save on ``~/cdn-report.json``.
 
-.. code-block::
+.. code-block:: bash
 
     $ cdn-test --url=https://aws.amazon.com/pt/cloudfront/ --http-verb=GET --time-step=10s --output-file=~/cdn-report.json
 
 Package Struct
 --------------
 
-.. code-block::
+.. code-block:: bash
 
     ├── cdn_test                # source code directory
     │   ├── cli.py              # parser cli parameters
