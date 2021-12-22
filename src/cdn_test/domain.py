@@ -68,7 +68,7 @@ def check_endpoint_aws_cloudfront(headers: dict, header_name='x-cache') -> bool:
 
 
 def request_endpoint(url: str, timeout_seconds=60, http_verb='GET') -> (dict, float):
-    response = requests.request(http_verb, url=url, timeout=timeout_seconds)
+    response = requests.request(http_verb, url=url, timeout=timeout_seconds, allow_redirects=False)
     headers = response.headers.copy()
     elapsed_time = response.elapsed
 
