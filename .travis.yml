@@ -7,7 +7,7 @@ before_install:
   - pip install poetry
 
 install:
-  - poetry install
+  - poetry shell
 
 before_deploy:
   - poetry build
