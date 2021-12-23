@@ -3,6 +3,14 @@ name = "cdn-test"
 version = "0.1.0"
 description = "CLI tool to test CDN"
 authors = ["Carlos Neto <carlos.neto.dev@gmail.com>"]
+maintainers = ["Carlos Neto <carlos.neto.dev@gmail.com>"]
+homepage = "https://github.com/augustoliks/cdn-test"
+readme = "README.rst"
+documentation = "https://github.com/augustoliks/cdn-test/blob/main/README.rst"
+keywords = ["cli", "test", "cloudfront", "aws", "cdn"]
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
 
 [tool.poetry.scripts]
 cdn-test = "cdn_test.cli:entrypoint"
@@ -12,9 +20,9 @@ python = ">=3.6.1"
 requests = "^2.26.0"
 pydantic = "^1.8.2"
 
-
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
