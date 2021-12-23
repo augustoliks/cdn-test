@@ -8,7 +8,7 @@ authors = ["Carlos Neto <carlos.neto.dev@gmail.com>"]
 cdn-test = "cdn_test.cli:entrypoint"
 
 [tool.poetry.dependencies]
-python = "^3.5"
+python = "^3.4"
 requests = "^2.26.0"
 pydantic = "^1.8.2"
 
