@@ -8,12 +8,9 @@ authors = ["Carlos Neto <carlos.neto.dev@gmail.com>"]
 cdn-test = "cdn_test.cli:entrypoint"
 
 [tool.poetry.dependencies]
-python = "^3.4"
+python = ">=3.6.1"
 requests = "^2.26.0"
 pydantic = "^1.8.2"
-
-[tool.poetry.dev-dependencies]
-pytest = "^6.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
