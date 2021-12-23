@@ -1,13 +1,10 @@
 language: python
 
 python:
-  - 3.6
-
-before_install:
-  - pip install poetry
+  - 3.7
 
 install:
-  - poetry shell
+  - pip3 install poetry
 
 before_deploy:
   - poetry build
