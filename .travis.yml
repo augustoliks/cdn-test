@@ -7,7 +7,7 @@ before_install:
   - env
   - pip install poetry
 
-requirements_file: ''
+install: skip
 
 #install:
 #  - poetry install
