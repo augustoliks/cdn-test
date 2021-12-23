@@ -1,6 +1,9 @@
 .. image:: https://badge.fury.io/py/cdn-test.svg
     :target: https://badge.fury.io/py/cdn-test
 
+.. image:: https://travis-ci.com/augustoliks/cdn-test.svg?branch=main
+    :target: https://travis-ci.com/github/augustoliks/cdn-test
+
 cdn-test
 ========
 
