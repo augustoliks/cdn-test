@@ -1,4 +1,4 @@
-from . import domain
+import domain
 import argparse
 import sys
 
