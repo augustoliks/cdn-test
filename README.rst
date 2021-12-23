@@ -57,7 +57,9 @@ Package Struct
 
 .. code-block:: bash
 
-    ├── cdn_test                # source code directory
+    ├── src
+    │   ├── cdn_test            # source code directory
+    │   ├── __init__.py         # module definition file
     │   ├── cli.py              # parser cli parameters
     │   └── domain.py           # module composed only domain logics
     ├── poetry.lock             # poetry dependencies versions
