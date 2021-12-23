@@ -3,8 +3,15 @@ language: python
 python:
   - 3.7
 
+before_install:
+  - env
+  - pip install poetry
+
 install:
-  - curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+  - poetry install
+
+#script:
+#  - poetry run pytest --cov=py_de_familia tests/
 
 before_deploy:
   - poetry build
@@ -13,9 +20,9 @@ deploy:
   provider: script
   script: poetry publish -u $PYPI_USER -p $PYPI_PASS
   skip_cleanup: true
-#  on:
+  on:
+    branch: main
 #    tags: true
-#    branch: main
 
 #after_success:
 #  - bash <(curl -s https://codecov.io/bash)
