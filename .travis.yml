@@ -12,15 +12,15 @@ install:
   - poetry install
 
 script:
-  - echo "tests"
+  - poetry publish -u $PYPI_USER -p $PYPI_PASS
 
 before_deploy:
   - poetry build
 
-deploy:
-  provider: script
-  script: poetry publish -u $PYPI_USER -p $PYPI_PASS
-  skip_cleanup: true
+#deploy:
+#  provider: script
+#  script: poetry publish -u $PYPI_USER -p $PYPI_PASS
+#  skip_cleanup: true
 #  on:
 #    tags: true
 #    branch: main
