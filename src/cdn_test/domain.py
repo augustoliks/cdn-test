@@ -38,7 +38,8 @@ class InputOptions(pydantic.BaseModel):
 
 
 def append_record(response_status: ResponseStatus, record_file: Path):
-    record_file.parent.mkdir(parents=True, exist_ok=True)
+    record_path = record_file.expanduser()
+    record_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
         report_history = record_file.read_text()
@@ -49,7 +50,7 @@ def append_record(response_status: ResponseStatus, record_file: Path):
     report_json = json.loads(response_status.json())
     old_report.append(report_json)
     content_serialized = json.dumps(old_report)
-    record_file.write_text(content_serialized)
+    record_path.write_text(content_serialized)
 
 
 def check_endpoint_aws_cloudfront(headers: dict, header_name='x-cache') -> bool:
