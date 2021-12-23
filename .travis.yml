@@ -1,24 +1,29 @@
 language: python
+
 dist: xenial
+
 python:
   - 3.7
-stages:
-  - deploy
-before_script:
-  - pip3 install -U poetry
-jobs:
-  include:
-    - stage: deploy
-      python: 3.7
-      before_install:
-        - pip3 install poetry
-      install:
-        - poetry install
-      before_deploy:
-        - poetry build
-      deploy:
-        provider: script
-        script: poetry publish -u $PYPI_USER -p $PYPI_PASS
-        skip_cleanup: true
-#        on:
-#          tags: true
+
+before_install:
+  - pip install poetry
+
+install:
+  - poetry install
+
+script:
+  - echo "tests"
+
+before_deploy:
+  - poetry build
+
+deploy:
+  provider: script
+  script: poetry publish -u $PYPI_USER -p $PYPI_PASS
+  skip_cleanup: true
+#  on:
+#    tags: true
+#    branch: main
+
+#after_success:
+#  - bash <(curl -s https://codecov.io/bash)
