@@ -7,8 +7,6 @@ before_install:
   - env
   - pip install poetry
 
-install: skip
-
 #install:
 #  - poetry install
 
