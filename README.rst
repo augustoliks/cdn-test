@@ -50,7 +50,7 @@ Each 10 seconds, it will be made a request with ``GET`` HTTP verb to web-site ho
 
 .. code-block:: bash
 
-    $ cdn-test --url=https://aws.amazon.com/pt/cloudfront/ --http-verb=GET --time-step=10s --output-file=~/cdn-report.json
+    $ cdn-test --url=https://aws.amazon.com/pt/cloudfront/ --http-verb=GET --time-step=10s --output-file=~/cdn-report.csv
 
 Package Struct
 --------------
