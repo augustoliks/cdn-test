@@ -3,7 +3,7 @@ import argparse
 import sys
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.6'
 
 
 def get_input_options_from_cli() -> domain.InputOptions:

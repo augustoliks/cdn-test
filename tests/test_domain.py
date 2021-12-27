@@ -1,7 +1,9 @@
-import pytest
 from datetime import (
-    timedelta
+    timedelta,
+    datetime
 )
+from pathlib import Path
+import pytest
 import domain
 
 
@@ -36,3 +38,13 @@ def test_request_endpoint():
 def test_check_endpoint_aws_cloudfront(test_input, expected):
     value_to_test = domain.check_endpoint_aws_cloudfront(test_input)
     assert expected == value_to_test
+
+
+def test_append_record():
+    response_status = domain.ResponseStatus(
+        cached=True,
+        date_time=datetime.now(),
+        elapsed_time=timedelta(days=1),
+        url='https://aws.amazon.com/pt/cloudfront/'
+    )
+    domain.append_record(response_status, Path('~/x.csv'))

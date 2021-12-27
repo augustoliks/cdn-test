@@ -1,5 +1,6 @@
 import os
 import json
+import csv
 import pydantic
 import requests
 from pathlib import Path
@@ -30,7 +31,7 @@ class ResponseStatus(pydantic.BaseModel):
 
 class InputOptions(pydantic.BaseModel):
     url: str
-    output_file: Path = Path('/tmp/cdn-report.json')
+    output_file: Path = Path('/tmp/cdn-report.csv')
     time_step: str = '1m'
     http_verb: str = 'GET'
     timeout: int = 60
@@ -41,16 +42,12 @@ def append_record(response_status: ResponseStatus, record_file: Path):
     record_path = record_file.expanduser()
     record_path.parent.mkdir(parents=True, exist_ok=True)
 
-    try:
-        report_history = record_file.read_text()
-        old_report = json.loads(report_history)
-    except:
-        old_report = []
+    record_row = json.loads(response_status.json())
 
-    report_json = json.loads(response_status.json())
-    old_report.append(report_json)
-    content_serialized = json.dumps(old_report)
-    record_path.write_text(content_serialized)
+    with record_path.open('a') as csvfile:
+        fieldnames = list(sorted(record_row.keys()))
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writerow(record_row)
 
 
 def check_endpoint_aws_cloudfront(headers: dict, header_name='x-cache') -> bool:
